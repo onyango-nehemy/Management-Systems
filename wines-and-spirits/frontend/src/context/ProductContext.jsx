@@ -29,7 +29,6 @@ export function ProductProvider({ children }) {
     if (user) {
       refresh()
     } else {
-      // Not logged in — nothing to fetch yet, and no point hitting
       // authenticated endpoints before a token exists.
       setProducts([])
       setCategories(['All'])

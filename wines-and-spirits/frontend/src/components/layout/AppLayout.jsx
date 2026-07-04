@@ -6,6 +6,7 @@ import { useProducts } from '../../context/ProductContext'
 import { LayoutDashboard, ShoppingCart, Package, Bell, BarChart3, Users, LogOut, Menu, X, AlertTriangle } from 'lucide-react'
 import clsx from 'clsx'
 
+//sidebar navigation Arrays
 const NAV = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard',     roles: ['owner','admin','staff'] },
   { to: '/pos',       icon: ShoppingCart,    label: 'Point of Sale', roles: ['owner','admin','staff'], cart: true },
@@ -34,9 +35,6 @@ export default function AppLayout() {
   const navigate         = useNavigate()
   const [open, setOpen]  = useState(false)
 
-  // Derived live from ProductContext — updates automatically whenever
-  // refresh() runs anywhere in the app (after add/edit/delete/adjust),
-  // no separate fetch or stale snapshot involved.
   const alertCount = products.filter(p => p.stock <= p.threshold).length
 
   const nav = NAV.filter(n => n.roles.includes(user?.role))

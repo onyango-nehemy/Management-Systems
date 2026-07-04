@@ -7,7 +7,7 @@ import { Eye, EyeOff, Loader2 } from 'lucide-react'
 function WineGlass() {
   return (
     <>
-      {/* Injecting CSS Animations without interfering with the theme colors */}
+      {/* Injecting CSS Animations*/}
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -92,7 +92,7 @@ const handleSubmit = async (e) => {
   return (
     <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-slate-50">
 
-      {/* ── Left: Brand panel ─────────────────────────────── */}
+      {/*Left: Brand panel*/}
       <div className="hidden lg:flex flex-col justify-between relative overflow-hidden px-16 py-12"
         style={{ background: '#F4C0D1' }}>
 
@@ -128,7 +128,7 @@ const handleSubmit = async (e) => {
         </div>
       </div>
 
-      {/* ── Right: Login form ──────────────────────────────── */}
+      {/*Right: Login form*/}
       <div className="flex flex-col items-center justify-center min-h-screen px-6 sm:px-12 py-12 bg-gradient-to-br from-slate-50 to-rose-50/30">
 
         {/* mobile logo */}
