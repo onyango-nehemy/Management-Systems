@@ -5,6 +5,7 @@ A custom-built Point of Sale (POS) and inventory management system for **Biggie 
 Full project documentation (client-facing) is available in [`docs/BiggieChillSpot-Documentation.pdf`](./docs/BiggieChillSpot-Documentation.pdf).
 
 **Live demo:** https://biggie-swart.vercel.app
+**LOGIN details for DEMO:admin@biggiechillspot.co.ke  // admin123
 
 
 ## What the System Does
