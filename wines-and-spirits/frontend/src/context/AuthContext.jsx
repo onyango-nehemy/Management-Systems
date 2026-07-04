@@ -1,0 +1,59 @@
+import { createContext, useContext, useState, useEffect } from 'react'
+import api from '../utils/api'
+
+const Ctx = createContext(null)
+
+export function AuthProvider({ children }) {
+  const [user, setUser]   = useState(() => {
+    try { return JSON.parse(localStorage.getItem('bcs_user')) } catch { return null }
+  })
+  const [loading, setLoading] = useState(true)
+
+  // On mount, verify the stored token is still valid
+useEffect(() => {
+  const token = localStorage.getItem('bcs_token')
+  if (!token) { setLoading(false); return }
+
+  const verify = async () => {
+    try {
+      const res = await api.get('/auth/me')
+      setUser(res.data.user)
+    } catch {
+      localStorage.removeItem('bcs_token')
+      localStorage.removeItem('bcs_user')
+      setUser(null)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  verify()
+}, [])
+
+  const login = async (email, password) => {
+    const res = await api.post('/auth/login', { email, password })
+    const { token, user } = res.data
+    localStorage.setItem('bcs_token', token)
+    localStorage.setItem('bcs_user', JSON.stringify(user))
+    setUser(user)
+    return user
+  }
+
+  const logout = () => {
+    localStorage.removeItem('bcs_token')
+    localStorage.removeItem('bcs_user')
+    setUser(null)
+  }
+
+  const isOwner = user?.role === 'owner'
+  const isAdmin = user?.role === 'admin' || isOwner
+  const isStaff = user?.role === 'staff'
+
+  return (
+    <Ctx.Provider value={{ user, loading, login, logout, isOwner, isAdmin, isStaff }}>
+      {children}
+    </Ctx.Provider>
+  )
+}
+
+export const useAuth = () => useContext(Ctx)

@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("staff") // owner | admin | staff
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sales     Sale[]
+}
+
+model Product {
+  id              Int      @id @default(autoincrement())
+  name            String
+  sku             String   @unique
+  barcode         String?
+  category        String
+  price           Float    // retail price (per unit)
+  wholesalePrice  Float?   // wholesale price (optional)
+  wholesaleMinQty Int?     // minimum qty to qualify for wholesale price
+  cost            Float
+  stock           Int      @default(0)
+  threshold       Int      @default(5)
+  unit            String
+  emoji           String?
+  isActive        Boolean  @default(true) // soft-delete flag — false means archived, not shown in active stock list
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  saleItems       SaleItem[]
+}
+
+model Sale {
+  id            Int        @id @default(autoincrement())
+  receiptNo     String     @unique
+  total         Float
+  payment       String     // Cash | M-Pesa
+  mpesaRef      String?
+  saleType      String     @default("retail") // retail | wholesale
+  customerPhone String?
+  cashier       User       @relation(fields: [cashierId], references: [id])
+  cashierId     Int
+  createdAt     DateTime   @default(now())
+
+  items         SaleItem[]
+}
+
+model SaleItem {
+  id        Int     @id @default(autoincrement())
+  sale      Sale    @relation(fields: [saleId], references: [id])
+  saleId    Int
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
+  quantity  Int
+  price     Float   // price at time of sale (retail or wholesale)
+}
+
+model StockAdjustment {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  type      String   // in | out | adjust
+  quantity  Int
+  note      String?
+  userId    Int
+  createdAt DateTime @default(now())
+}
