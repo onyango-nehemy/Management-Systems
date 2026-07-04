@@ -2,7 +2,7 @@
 
 A custom-built Point of Sale (POS) and inventory management system for **Biggie Chill Spot**, Rongo, Migori — Kenya. Built around real shop operations: retail and wholesale sales, M-Pesa and cash payments, barcode-driven stock control, and role-based access for owners, admins, and staff.
 
-Full project documentation (client-facing) is available in [`docs/BiggieChillSpot-Documentation.pdf`](./docs/BiggieChillSpot-Documentation.pdf).
+Full project documentation is available in [`docs/BiggieChillSpot-Documentation.pdf`](./docs/BiggieChillSpot-Documentation.pdf).
 
 **Live demo:** https://biggie-swart.vercel.app
 **LOGIN details for DEMO:admin@biggiechillspot.co.ke  // admin123
@@ -17,11 +17,11 @@ Full project documentation (client-facing) is available in [`docs/BiggieChillSpo
 - **Reports** (Owner & Admin) — daily/weekly/monthly revenue and profit views, full transaction history, payment/sale-type breakdowns.
 - **User & Role Management** (Owner & Admin) — create, edit, deactivate staff accounts with role-based permissions.
 
-## User Roles
+## User Roles for DEMONSTRATIONS LOGIN DETAILS
 
 | Role  | Access |
 |-------|--------|
-| Owner | Full access, including Reports and User Management |
+| Owner | Full access, including Reports and User Management |admin@biggiechillspot.co.ke  admin123
 | Admin | Everything except owner-only settings |
 | Staff | Point of Sale, Stock (view & adjust), Low Stock Alerts |
 
