@@ -21,7 +21,7 @@ function Logo() {
     <div className="flex items-center gap-2.5">
       <span className="text-2xl">🍷</span>
       <div>
-        <p className="text-sm font-bold text-slate-900 leading-tight">Biggie Chill Spot</p>
+        <p className="text-sm font-bold text-slate-900 leading-tight">Chill Spot</p>
         <p className="text-xs text-slate-400">Wines &amp; Spirits</p>
       </div>
     </div>
