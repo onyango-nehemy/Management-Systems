@@ -107,7 +107,7 @@ const handleSubmit = async (e) => {
         {/* brand */}
         <div className="relative z-10">
           <p className="text-xl font-extrabold tracking-tight" style={{ color:'#FFFFFF' }}>
-            Biggie Chill Spot
+            Chill Spot
           </p>
           <p className="text-xs font-bold uppercase tracking-widest mt-1" style={{ color: '#FF9900' }}>
             Wines &amp; Spirits 
@@ -137,7 +137,7 @@ const handleSubmit = async (e) => {
             style={{ background: '#F4C0D1' }}>
             <WineGlass />
           </div>
-          <p className="font-extrabold text-slate-900 text-2xl mt-2 tracking-tight">Biggie Chillie Spot</p>
+          <p className="font-extrabold text-slate-900 text-2xl mt-2 tracking-tight">Chill Spot</p>
           <p className="text-xs uppercase tracking-widest font-bold" style={{ color: '#D4537E' }}>
             Wines &amp; Spirits
           </p>
@@ -166,7 +166,7 @@ const handleSubmit = async (e) => {
                 onFocus={e => e.target.style.borderColor = '#D4537E'}
                 onBlur={e => e.target.style.borderColor = '#f0d0da'}
                 type="email"
-                placeholder="you@biggiechilliespot.co.ke"
+                placeholder="you@chillspot.co.ke"
                 value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                 required

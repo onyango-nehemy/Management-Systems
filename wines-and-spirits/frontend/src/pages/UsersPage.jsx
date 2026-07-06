@@ -39,7 +39,7 @@ function UserModal({ user, onClose, onSave }) {
         {error && <div className="mb-4 text-xs text-red-600 bg-red-50 px-3 py-2 rounded-xl border border-red-100">{error}</div>}
         <div className="space-y-4">
           <div><label className="label">Full name</label><input className="input" value={form.name} onChange={F('name')} placeholder="e.g. Faith Muthoni"/></div>
-          <div><label className="label">Email</label><input className="input" type="email" value={form.email} onChange={F('email')} placeholder="staff@biggiechillspot.co.ke"/></div>
+          <div><label className="label">Email</label><input className="input" type="email" value={form.email} onChange={F('email')} placeholder="staff@chillspot.co.ke"/></div>
           <div>
             <label className="label">Role</label>
             <div className="grid grid-cols-2 gap-2">

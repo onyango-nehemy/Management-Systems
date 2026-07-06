@@ -86,7 +86,7 @@ export function printReceipt(sale) {
 <body>
 
   <div class="header">
-    <div class="shop-name">BIGGIE CHILL SPOT</div>
+    <div class="shop-name">CHILL SPOT</div>
     <div class="tagline">Wines &amp; Spirits — Nairobi, Kenya</div>
     <div class="contact">Tel: +254 700 000 000</div>
   </div>
@@ -129,7 +129,7 @@ export function printReceipt(sale) {
   <div class="footer">
     <div class="thank">Thank you! Come again 🍾</div>
     <div style="margin-top:4px;">Enjoy responsibly · 18+</div>
-    <div style="margin-top:2px;">biggiechillspot.co.ke</div>
+    <div style="margin-top:2px;">chillspot.co.ke</div>
   </div>
 
 </body>
